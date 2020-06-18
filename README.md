@@ -1,6 +1,23 @@
-# IngresoEgresoApp
+# Funcionamiento Aplicacion
+| Crear el proyecto de Angular |
+| ------------- |
+| Manejo de la estructura de carpetas|
+| Implementar las rutas y las rutas hijas|
+| Diseñar las pantallas de la aplicación|
+| Convertir un template a una aplicación de Angular|
+| El objetivo primordial, es tener un cascaron que nos sirva para trabajar de una forma muy parecida a la realidad, a la cual nos enfrentaremos cuando implementemos este patrón en la empresa|
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+| Creacion de componentes |
+| ------------- |
+| ng g c auth/login --skipTests -is|
+| ng g c auth/register --skipTests -is|
+| ng g c dashboard --skipTests -is|
+| ng g c ingreso-egreso --skipTests -is|
+| ng g c ingreso-egreso/estadistica --skipTests -is|
+| ng g c ingreso-egreso/detalle --skipTests -is|
+| ng g c shared/footer --skipTests -is|
+| ng g c shared/navbar --skipTests -is|
+| ng g c shared/sidebar --skipTests -is|
 
 ## Development server
 
