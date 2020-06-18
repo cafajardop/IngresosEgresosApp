@@ -19,6 +19,10 @@
 | ng g c shared/navbar --skipTests -is|
 | ng g c shared/sidebar --skipTests -is|
 
+| Creacion de Tags |
+| ------------- |
+| git tag -a v1.0.0 -m "Template Listo"|
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
