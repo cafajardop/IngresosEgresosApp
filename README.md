@@ -23,6 +23,20 @@
 | ------------- |
 | git tag -a v1.0.0 -m "Template Listo"|
 
+
+| Autenticación de nuestra aplicación |
+| ------------- |
+| Aquí vamos a cubrir temas interesantes como:|
+| Firebase|
+| AngularFire2|
+| AngularFireAuth|
+| Backend y autorizaciones|
+| Login|
+| Register|
+| Sweetalert|
+| Logout|
+| Grabar un documento en Firebase|
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
