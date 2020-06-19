@@ -63,3 +63,12 @@
 | Dispatch de acciones de UI|
 | Acciones del Auth|
 | Reducer del Auth|
+
+| Snippets personalizados con Gits|
+| ------------- |
+| https://gist.github.com/Klerith/e6cb4f984cf1bc9c1f2e99b5f5509b7f|
+
+
+| Instalacion ngrx :|
+| ------------- |
+| npm install @ngrx/store|
