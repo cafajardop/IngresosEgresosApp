@@ -18,6 +18,8 @@
 | ng g c shared/footer --skipTests -is|
 | ng g c shared/navbar --skipTests -is|
 | ng g c shared/sidebar --skipTests -is|
+| ng g s services/auth --skipTests|
+| ng g guard services/auth --skipTests|
 
 | Creacion de Tags |
 | ------------- |
@@ -36,6 +38,20 @@
 | Sweetalert|
 | Logout|
 | Grabar un documento en Firebase|
+
+| Instalación AngularFire |
+| ------------- |
+| npm install angularfire --save|
+| ng add @angular/fire@next |
+| https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md|
+
+
+| Solución Error angular Fire |
+| ------------- |
+| https://stackoverflow.com/questions/61130173/angular9-error-in-the-target-entry-point-angular-fire-auth-has-missing-depen|
+| "firebase": "^7.13.2",|
+| package.json:| 
+
 
 ## Development server
 
