@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2'
+import   Swal from 'sweetalert2'
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import * as ui from 'src/app/shared/ui.actions';
@@ -73,5 +73,4 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
       )
   }
-
 }
