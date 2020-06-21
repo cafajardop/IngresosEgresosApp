@@ -72,3 +72,16 @@
 | Instalacion ngrx :|
 | ------------- |
 | npm install @ngrx/store|
+
+## Sección 4
+| Instalación AngularFire |
+| ------------- |
+| Crear modelo de Ingresos y Egresos |
+| Pantallas de captura de datos |
+| Servicio de Ingreso Egreso |
+| Loadings |
+| Acciones y Reducer de Ingresos y Egresos |
+| Leer de Firebase |
+| Grabar a Firebase |
+| Gráficas dinámicas |
+| Y otras cosas |
