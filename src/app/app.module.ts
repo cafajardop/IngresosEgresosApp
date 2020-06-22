@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StoreModule} from '@ngrx/store'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+//Charts
+import { ChartsModule } from 'ng2-charts';
 
 //Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -30,6 +32,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { environment } from 'src/environments/environment';
 import { appReducers } from './app.reducer';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { appReducers } from './app.reducer';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ import { appReducers } from './app.reducer';
     AngularFirestoreModule,
     AngularFireAuthModule,
     StoreModule.forRoot(appReducers),
+    ChartsModule,
     StoreDevtoolsModule.instrument({
       maxAge:25,
       logOnly: environment.production,

@@ -10,32 +10,36 @@ import { map } from 'rxjs/operators';
 })
 export class IngresoEgresoService {
 
-  constructor(private firestore:  AngularFirestore,
-              private authService: AuthService ) { }
+  constructor(private firestore: AngularFirestore,
+    private authService: AuthService) { }
 
-  crearIngresoEgreso(ingresoEgreso: IngresoEgreso){
-    // TODO: Creamos el servicio e instanciamos AngularFirestore
-      const uid = this.authService.user.uid
-      return this.firestore.doc(`${ uid }/ingresos-egresos`)
-          .collection('items')
-          .add({ ...ingresoEgreso})
-  }
 
-  initIngresosEgresosListener(uid: string){
-    this.firestore.collection(`${ uid }/ingresos-egresos/items`)
+  crearIngresoEgreso(ingresoEgreso: IngresoEgreso) {
+    const uid = this.authService.user.uid;
+    delete ingresoEgreso.uid;
+    return this.firestore.doc(`${uid}/ingresos-egresos`)
+      .collection('items')
+      .add({ ...ingresoEgreso });
+ }
+
+
+  initIngresosEgresosListener(uid: string) {
+    return this.firestore.collection(`${uid}/ingresos-egresos/items`)
       .snapshotChanges()
       .pipe(
         map(snapshot => {
-          return snapshot.map( doc => {
-            return{
+          return snapshot.map(doc => {
+            return {
               uid: doc.payload.doc.id,
               ...doc.payload.doc.data() as any
             }
           })
         })
       )
-      .subscribe(algo =>{
-        console.log(algo);
-      })
+  }
+
+  borrarIngresoEgreso(uidItem: string) {
+    const uid = this.authService.user.uid
+    return this.firestore.doc(`${uid}/ingresos-egresos/items/${uidItem}`).delete();
   }
 }
