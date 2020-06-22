@@ -30,11 +30,12 @@ export class AuthService {
               private store: Store<AppState>) { }
 
   initAuthListener() {
-   this.userSubscription =  this.auth.authState.subscribe( fuser => {
+   this.auth.authState.subscribe( fuser => {
       if( fuser ){
         //Existe
-        this.firestore.doc(`${ fuser.uid }/usuario`).valueChanges()
+      this.userSubscription = this.firestore.doc(`${ fuser.uid }/usuario`).valueChanges()
           .subscribe ( (firestoreUser: any) => {
+            
             const user= Usuario.fromFirebase( firestoreUser)
             this._user = user;
             this.store.dispatch(authActions.SetUser({ user}));
@@ -42,7 +43,7 @@ export class AuthService {
       }
       else{
         this._user= null;
-        this.userSubscription.unsubscribe();
+        this.userSubscription?.unsubscribe();
         this.store.dispatch( authActions.usSetUser())
         this.store.dispatch( ingresoEgresoActions.unSetItems() );
       }
@@ -60,6 +61,7 @@ export class AuthService {
 
   loginUsuario(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password);
+
   }
 
   logout() {

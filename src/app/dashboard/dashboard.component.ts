@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         filter(auth => auth.user != null)
       )
       .subscribe(({ user }) => {
-        console.log(user);
         this.ingresosSubs =  this.ingresoEgresoService.initIngresosEgresosListener(user.uid)
           .subscribe(ingresosEgresosFB => {
             this.store.dispatch(ingresoEgresoActions.setItems({ items: ingresosEgresosFB }))
@@ -36,7 +35,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.ingresosSubs.unsubscribe();
-    this.userSubs.unsubscribe();
+    this.ingresosSubs?.unsubscribe();
+    this.userSubs?.unsubscribe();
   }
 }

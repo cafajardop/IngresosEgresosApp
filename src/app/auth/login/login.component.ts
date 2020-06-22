@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import   Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import * as ui from 'src/app/shared/ui.actions';
@@ -25,19 +25,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     private store: Store<AppState>,
     private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
 
     this.uiSubscription = this.store.select('ui')
-                              .subscribe(ui => {
-                              this.cargando = ui.isLoading;
-                            });
+      .subscribe(ui => {
+        this.cargando = ui.isLoading;
+      });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.uiSubscription.unsubscribe();
   }
 
@@ -47,18 +47,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.store.dispatch(ui.isLoading())
 
-    // Swal.fire({
-    //   title: 'Espere por favor!!!!',
-    //   timerProgressBar: true,
-    //   onBeforeOpen: () => {
-    //     Swal.showLoading()
-    //   }
-    // });
-
     const { email, password } = this.loginForm.value;
     this.authService.loginUsuario(email, password)
       .then(credenciales => {
-        console.log(credenciales);
         // Swal.close();
         this.store.dispatch(ui.stopLoading());
         this.router.navigate(['/']);
@@ -70,7 +61,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           title: 'Oops...',
           text: err.message,
         })
-      }
-      )
+      })
   }
 }
